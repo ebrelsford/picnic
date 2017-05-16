@@ -24,12 +24,11 @@
         <div id="map"></div>
 
         <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-        <script src="https://stamen-maps.a.ssl.fastly.net/js/tile.stamen.js"></script>
         <script src="https://cdn.jsdelivr.net/leaflet.locatecontrol/0.60.0/L.Control.Locate.min.js"></script>
 
         <script>
             var map = L.map('map').setView([40.65824, -73.96572], 18);
-            var baseLayer = new L.StamenTileLayer('terrain').addTo(map);
+            var baseLayer = L.tileLayer(' https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg').addTo(map);
             var locateControl = L.control.locate({
                 setView: false
             }).addTo(map);
