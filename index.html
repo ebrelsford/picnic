@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet.locatecontrol/0.60.0/L.Control.Locate.min.css" />
         <style>
@@ -29,7 +30,10 @@
         <script>
             var map = L.map('map').setView([40.65824, -73.96572], 18);
             var baseLayer = new L.StamenTileLayer('terrain').addTo(map);
-            L.control.locate().addTo(map);
+            var locateControl = L.control.locate({
+                setView: false
+            }).addTo(map);
+            locateControl.start();
 
             var request = new XMLHttpRequest();
             request.open('GET', 'https://gist.githubusercontent.com/ebrelsford/656a454940b6e16c4875108342565f8d/raw/afecab28e5a38fc0a3506e12f048dab2dad1fc68/map.geojson', true);
